@@ -41,7 +41,7 @@ I run two snort processes on two different ethernet ports that log to /var/log/s
 /var/log/snort-eth2 so I have snort2graphite.pl set up to execute from cron every minute with the 
 following cron entires:<br>
 ```
-* * * * * /usr/sbin/snort2graphite.pl -d -f /var/log/snort-eth1/snort.stats -i eth1 -s 127.0.0.1:2003 > /var/log/snort2graphite.pl_eth2_cron.log 2>&1
+* * * * * /usr/sbin/snort2graphite.pl -d -f /var/log/snort-eth1/snort.stats -i eth1 -s 127.0.0.1:2003 > /var/log/snort2graphite.pl_eth1_cron.log 2>&1
 * * * * * /usr/sbin/snort2graphite.pl -d -f /var/log/snort-eth2/snort.stats -i eth2 -s 127.0.0.1:2003 > /var/log/snort2graphite.pl_eth2_cron.log 2>&1
 ```
 
