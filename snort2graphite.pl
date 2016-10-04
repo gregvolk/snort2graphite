@@ -3,6 +3,8 @@
 # snort2graphite.pl 
 # read, parse, and send the contents of snort.stats to graphite
 # 2016-10-03 Greg Volk 
+# https://github.com/gregvolk/snort2graphite
+#
 #
 # required command line flags are:
 # -f <input file> 
@@ -70,7 +72,6 @@ unless (defined $options{s}) { die "-s <graphiteserver:port> required\n"; }
 my $graphiteserver = $options{s};
 
 # assign optional interface tag
-$interface = $options{i};
 if(defined $options{i}) {
   $interface = "snort-$options{i}";
 } else {
@@ -130,7 +131,7 @@ foreach $line (@input) {
 
 if($debug) { print localtime().":found $#fields fields in csv header after $linecount lines of data\n"; }
 
-# store the last (most recent) line of the stats file a hash table keyed 
+# store the last (most recent) line of the stats file in a hash table keyed 
 # with the fields from above
 chomp $input[$#input];
 @csvhash{ @fields } = split( /,/, $input[$#input]);
