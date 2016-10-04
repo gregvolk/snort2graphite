@@ -1,10 +1,10 @@
 #snort2graphite.pl
-Read, parse, and send the contents of snort.stats to a Graphite server.
+Read, parse, and send the contents of snort.stats to a Graphite server.<br>
 Snort IDS/IPS can be configured to generate a rich set of metrics about network 
 traffic. Presently there are more than 130 metrics available. Snort2graphite 
 will pick up the most recent data from your snort.stats file and send all the 
-metrics into Graphite.
-https://github.com/gregvolk/snort2graphite
+metrics into Graphite.<br>
+Updates at https://github.com/gregvolk/snort2graphite
 
 
 ###required command line flags are:
