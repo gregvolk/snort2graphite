@@ -22,7 +22,7 @@ Updates at https://github.com/gregvolk/snort2graphite
 ###syntax:
 `./snort2graphite.pl [-i interfacenametag] [-d] -s <graphiteserver:port> -f <snort.stats-file-location>`
 
-
+###prerequisites
 Before this program will work, you need to tell snort to generate a snort.stats file. In your
 snort.conf, add a line like this...<br>
 
@@ -52,6 +52,7 @@ read /var/log/snort-eth2/snort.stats, send the last line to graphite listening o
 and add an interface tag of "eth2" into the graphite namespace value<br>
 `./snort2graphite.pl -i eth2 -f /var/log/snort-eth2/snort.stats -s 192.168.2.2:2003`
 
+###cron example:
 I run two snort processes on two different ethernet ports that log to /var/log/snort-eth1 and 
 /var/log/snort-eth2 so I have snort2graphite.pl set up to execute from cron every minute with the 
 following cron entires:<br>
@@ -64,6 +65,8 @@ following cron entires:<br>
 If you are having trouble making this work, try calling snort2graphite.pl with the -d flag. 
 You should get some debug output similar to what appears below.
 ```
+./snort2graphite.pl -d -f /var/log/snort-eth1/snort.stats -i eth1 -s 127.0.0.1:2003
+
 Tue Oct 18 09:14:01 2016:successfully opened graphite socket (Net::Graphite=HASH(0x1b28568))
 Tue Oct 18 09:14:01 2016:found 131 fields in csv header after 2 lines of data
 Tue Oct 18 09:14:01 2016:graphite->send(myhost.snort-eth1.time,1476800019,1476800019)
