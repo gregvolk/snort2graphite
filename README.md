@@ -25,9 +25,7 @@ Updates at https://github.com/gregvolk/snort2graphite
 
 Before this program will work, you need to tell snort to generate a snort.stats file. In your
 snort.conf, add a line like this...<br>
-
 `preprocessor perfmonitor: time 60 file /var/log/snort-eth1/snort.stats pktcnt 1000 max_file_size 50000`
-
 <br>
 ...then restart snort and look for that snort.stats file to be created. You can read more
 about Snort's performance stats in the snort manual under Configuring Snort -> Preprocessors -> 
